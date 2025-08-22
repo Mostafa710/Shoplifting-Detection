@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded">
+        <h1 class="mb-3 text-center">{{ project_name }}</h1>
+        <p class="text-muted text-center">AI-Powered Shoplifting Detection System</p>
+        <hr>
+
+        <h3>About the Project</h3>
+        <p>{{ description }}</p>
+
+        <h3>Model Architecture</h3>
+        <p>This system is based on the <strong>{{ architecture }}</strong> for video-based action recognition and detection.</p>
+
+        <h3>Authors</h3>
+        <ul>
+            {% for author in authors %}
+                <li><strong>{{ author.name }}</strong> – {{ author.role }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Contact</h3>
+        <p>
+            📧 Email: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a><br>
+            🔗 GitHub: <a href="{{ github }}" target="_blank">{{ github }}</a><br>
+            💼 LinkedIn: <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a>
+        </p>
+
+        <footer class="text-center mt-4 text-muted">
+            © {{ year }} {{ project_name }} · Powered by 3D-CNN
+        </footer>
+    </div>
+</div>
+{% endblock %}

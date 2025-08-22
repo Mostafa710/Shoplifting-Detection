@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Upload a Video</h2>
+  <p>Upload an <strong>MP4</strong> file and the model will predict whether it contains <strong>shoplifting</strong> or <strong>normal</strong> activity.</p>
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+  <form method="post" enctype="multipart/form-data" class="upload-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Analyze</button>
+  </form>
+</section>
+<section class="help card subtle">
+  <h3>Tips</h3>
+  <ul>
+    <li>Max clip length is flexible. We uniformly sample 16 frames across your video.</li>
+    <li>Each input frame's size is adjusted to 112×112 per frame (matching training).</li>
+    <li>No per-channel normalization was used (matching training).</li>
+  </ul>
+</section>
+{% endblock %}

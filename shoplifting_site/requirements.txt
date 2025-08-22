@@ -1,0 +1,7 @@
+django>=4.2,<5.0
+torch>=2.0
+torchvision>=0.15
+opencv-python
+pillow
+numpy
+tqdm

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Prediction</h2>
+  <div class="prediction">
+    <div class="pred-label">
+      <span class="pill {% if result.label == 'Shoplifting' %}danger{% else %}success{% endif %}">
+        {{ result.label }}
+      </span>
+    </div>
+    <div class="probs">
+      <div>Normal: {{ result.probs.0|floatformat:3 }}</div>
+      <div>Shoplifting: {{ result.probs.1|floatformat:3 }}</div>
+    </div>
+  </div>
+  {% if video_url %}
+  <div class="player">
+    <video src="{{ video_url }}" controls preload="metadata"></video>
+  </div>
+  {% endif %}
+  <a href="/" class="btn">Analyze another video</a>
+</section>
+{% endblock %}
